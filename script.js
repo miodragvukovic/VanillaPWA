@@ -1,9 +1,11 @@
 var disableClick = false
-for ( var trigger of document.getElementsByClassName('trigger') ) {
+for ( let i = 0; i < document.getElementsByClassName('trigger').length; i++ ) {
+	var trigger = document.getElementsByClassName('trigger')[i]
 	trigger.addEventListener('click', function(){
 		if ( disableClick == false ) {
 			disableClick = true
 			let selected = this.getAttribute('data-target')
+			let selectedAnchorValue = this.getAttribute('data-value')
 			if ( this.classList.contains('active') ) {
 				disableClick = false
 				return false
@@ -13,6 +15,16 @@ for ( var trigger of document.getElementsByClassName('trigger') ) {
 				}
 				this.classList.add('active')
 				request(selected)
+				document.querySelector('.anchor-pointer').style.top = selectedAnchorValue + "vh"
+				for ( let chains of document.getElementsByClassName('links') ) {
+					chains.children[0].style.left = "-" + selectedAnchorValue + "vh"
+				}
+				for ( let topSpin of document.getElementsByClassName('spin-it') ) {
+					topSpin.style.transform = "rotate("+ (53.241 * (i+1)) * 3.6 +"deg)"
+				}
+				for ( let bottomSpin of document.getElementsByClassName('bottom-spin') ) {
+					bottomSpin.style.transform = "rotate("+ (53.241 * (i+1)) * 3.6 +"deg)"
+				}
 			}
 		}
 	})
@@ -62,6 +74,7 @@ function check() {
 	}
 }
 
-
+var oneLink = 3.42
+var anchor = 8.3
 
 
