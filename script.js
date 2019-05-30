@@ -19,11 +19,8 @@ for ( let i = 0; i < document.getElementsByClassName('trigger').length; i++ ) {
 				for ( let chains of document.getElementsByClassName('links') ) {
 					chains.children[0].style.left = "-" + selectedAnchorValue + "vh"
 				}
-				for ( let topSpin of document.getElementsByClassName('spin-it') ) {
-					topSpin.style.transform = "rotate("+ (53.241 * (i+1)) * 3.6 +"deg)"
-				}
-				for ( let bottomSpin of document.getElementsByClassName('bottom-spin') ) {
-					bottomSpin.style.transform = "rotate("+ (53.241 * (i+1)) * 3.6 +"deg)"
+				for ( let spinIt of document.getElementsByClassName('spin-it') ) {
+					spinIt.style.transform = "rotate("+ (53.241 * (i+1)) * 3.6 +"deg)"
 				}
 			}
 		}
